@@ -1,5 +1,44 @@
-## 参考記事
+## Setup
 
+### Setup
+
+プロジェクトフォルダ作成
+
+```
+docker-compose run --rm app django-admin startproject config .
+```
+
+### dbの値変更
+
+```
+[settings.py]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+```
+
+### 起動
+
+```
+docker-compose up
+```
+
+### migrate
+
+```
+docker-compose exec app bash
+python manage.py migrate
+```
+
+## 参考記事
 
 - 参考
 
